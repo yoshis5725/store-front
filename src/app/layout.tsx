@@ -18,12 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-      <Navbar />
-      <Container className={'py-20'}>
-      {children}
-      </Container>
-      </body>
+          <body className={inter.className}>
+              <Navbar />
+              <Container className={'py-20'}>
+                  {children}
+              </Container>
+          </body>
     </html>
   );
 }
