@@ -8,7 +8,7 @@ import {LuLayoutGrid, LuList} from "react-icons/lu";
 import {Separator} from "@/components/ui/separator";
 
 const ProductsContainer = async( {layout, search}: {layout:string, search:string} ) => {
-    const products = await fetchAllProducts();
+    const products = await fetchAllProducts({search});
     const totalProducts = products.length;
     const searchTerm = search ? `&search=${search}` : '';
 
