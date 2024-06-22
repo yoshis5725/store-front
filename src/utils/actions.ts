@@ -1,4 +1,5 @@
 import db from "@/utils/db";
+import {redirect} from "next/navigation";
 
 
 //
@@ -10,7 +11,6 @@ export const fetchFeaturedProducts = async () => {
             featured: true
         }
     });
-
     return products;
 };
 
@@ -33,3 +33,17 @@ export const fetchAllProducts = async ({search = ''} : {search: string}) => {
 
     return products;
 };
+
+
+//
+// Getting a single product by its ID.
+//
+export const fetchProductById = async (productId: string) => {
+    const product = await db.product.findUnique({
+        where: {
+            id: productId
+        }
+    });
+    if (!product) redirect('/products');
+    return product;
+}
